@@ -14,14 +14,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="App_to_Home"
       >
         <Stack.Screen
-          name="Home"
+          name="App_to_Home"
           component={HomeScreen}
         />
         <Stack.Screen
-          name="Details"
+          name="Home_to_Details"
+          component={DetailsScreen}
+        />
+        <Stack.Screen
+          name="Details_to_Details"
           component={DetailsScreen}
         />
         <Stack.Screen
