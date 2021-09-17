@@ -25,14 +25,27 @@ export default function App() {
         <Stack.Screen
           name="App_to_Home"
           component={HomeScreen}
+          options={{
+            title: 'Movie Time',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 30
+            }
+          }}
         />
         <Stack.Screen
           name="Home_to_Details"
           component={DetailsScreen}
+          options={({ route }) => ({
+            title: route.params.movie.title
+          })}
         />
         <Stack.Screen
           name="Details_to_Details"
           component={DetailsScreen}
+          options={({ route }) => ({
+            title: route.params.movie.title
+          })}
         />
         <Stack.Screen
           name="Image"
