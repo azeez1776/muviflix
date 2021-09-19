@@ -1,13 +1,13 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { Button, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const HomeScreen = ({ navigation, route }) => {
   console.log(route)
   return (
     <View style={styles.mainView}>
       <Text>Home Screen</Text>
-      <Button
-        title="Star Wars"
+      <TouchableOpacity
+        style={styles.touchableView}
         onPress={() => {
           navigation.navigate("Home_to_Details", {
             movie: {
@@ -16,9 +16,15 @@ const HomeScreen = ({ navigation, route }) => {
               screenNumber: 1
             }
           })
-        }} />
-      <Button
-        title="Black Panther"
+        }} >
+        <View>
+          <Text style={styles.touchableText}>
+            Star Wars
+          </Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.touchableView}
         onPress={() => {
           navigation.navigate("Home_to_Details", {
             movie: {
@@ -27,9 +33,15 @@ const HomeScreen = ({ navigation, route }) => {
               screenNumber: 1
             }
           })
-        }} />
-      <Button
-        title="The Matrix"
+        }} >
+        <View>
+          <Text style={styles.touchableText}>
+            Black Panther
+          </Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.touchableView}
         onPress={() => {
           navigation.navigate("Home_to_Details", {
             movie: {
@@ -38,7 +50,13 @@ const HomeScreen = ({ navigation, route }) => {
               screenNumber: 1
             }
           })
-        }} />
+        }} >
+        <View>
+          <Text style={styles.touchableText}>
+            The Matrix
+          </Text>
+        </View>
+      </TouchableOpacity>
     </View>
   )
 };
@@ -48,6 +66,22 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  touchableView: {
+    marginBottom: 30,
+    width: 150,
+    height: 50,
+    alignItems: 'center',
+    backgroundColor: 'red',
+    borderWidth: 5,
+    borderRadius: 10,
+  },
+  touchableText: {
+    textAlign: 'center',
+    paddingTop: 5,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white'
   }
 });
 

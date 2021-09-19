@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
 
 const DetailsScreen = ({ navigation, route }) => {
   const { movie } = route.params
+
+  useEffect(() => {
+    const muvi = async () => {
+      try {
+        const data = await fetch('http://www.omdbapi.com/?apikey=62eda7be&t=Star+wars&y=1977');
+        const response = await data.json();
+        return console.log(response);
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    muvi();
+  }, [])
+
   console.log(route)
   return (
     <View style={styles.mainView}>
-      <Text style={{ fontSize: 20 }}>{movie.title} ({movie.release})</Text>
-      <Text style={{ fontSize: 100 }} >{movie.screenNumber}</Text>
-      <Button
-        title="Go to Image"
-        onPress={() => { navigation.navigate("BigImageView") }} />
-      <Button
-        title="More Details"
-        onPress={() => {
-          movie.screenNumber = movie.screenNumber + 1;
-          console.log(movie);
-          navigation.push("Details_to_Details",
-            { movie: movie })
-        }} />
-      <Button
-        title="Back a screen"
-        onPress={() => { navigation.popToTop() }} />
+
     </View>
   )
 };
